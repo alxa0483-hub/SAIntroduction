@@ -33,7 +33,7 @@ body {
   max-width:430px;
   margin:0 auto;
   overflow-x:hidden;
-  padding-bottom:calc(64px + env(safe-area-inset-bottom,0px));
+  padding-bottom:40px;
 }
 
 /* ─── scroll hide ─── */
@@ -74,7 +74,7 @@ body {
 
 /* ═══════════════════ HERO ═══════════════════ */
 #hero {
-  padding:44px 20px 52px;
+  padding:52px 20px 52px;
   background:linear-gradient(165deg,#0c1526 0%,#0d2230 55%,#0a1a18 100%);
   position:relative; overflow:hidden;
 }
@@ -87,16 +87,12 @@ body {
   pointer-events:none;
 }
 .hero-brand {
-  display:flex; align-items:center; justify-content:center; gap:0;
-  margin-bottom:24px;
+  display:flex; justify-content:center;
+  margin-bottom:40px;
   opacity:0; animation:fu .8s cubic-bezier(.22,1,.36,1) .06s forwards;
 }
 .hero-logo-img {
-  width:64px; height:64px; object-fit:contain; flex-shrink:0;
-}
-.hero-brand-name {
-  font-family:'DM Sans',sans-serif; font-size:20px; font-weight:300;
-  color:#ffffff; letter-spacing:.02em;
+  width:180px; object-fit:contain;
 }
 .hero-h1 {
   font-family:'DM Sans',sans-serif; font-size:36px; font-weight:200;
@@ -112,145 +108,34 @@ body {
 
 /* ─── device mockup ─── */
 .hero-mockup {
-  position:relative; margin:0 auto 32px;
+  position:relative;
+  margin:0 auto 32px;
+  aspect-ratio:1002/677;
   opacity:0; animation:fu 1s cubic-bezier(.22,1,.36,1) .34s forwards;
 }
-.device-outer {
-  background:linear-gradient(145deg,#2e2e2e 0%,#1a1a1a 100%);
-  border-radius:18px; padding:8px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.06) inset,
-    0 0 0 1.5px rgba(0,0,0,.7),
-    0 24px 64px rgba(0,0,0,.55),
-    0 8px 20px rgba(0,0,0,.3);
-  animation:hero-float 5.5s ease-in-out infinite;
+.hero-mockup > img:not(.hero-wave) {
+  width:100%; height:100%; display:block; object-fit:contain;
 }
-@keyframes hero-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
-.device-screen {
-  border-radius:11px; overflow:hidden;
-  background:#0d1b2a;
-  aspect-ratio:4/3; position:relative;
+.hero-wave {
+  position:absolute;
+  bottom:44%;
+  right:22%;
+  width:31%;
+  transform:rotate(-32deg);
+  transform-origin:center center;
+  pointer-events:none;
 }
-.device-screen img {
-  width:100%; height:100%;
-  object-fit:cover; object-position:top left;
-  display:block;
-}
-/* fallback when img fails */
-.device-fallback {
-  display:none; width:100%; height:100%;
-  flex-direction:row;
-}
-.df-sb {
-  width:20%; background:linear-gradient(165deg,#082220,#091a24);
-  padding:8px 5px; display:flex; flex-direction:column; gap:5px;
-}
-.df-logo {
-  height:20px; border-radius:4px; background:rgba(255,255,255,.1);
-  margin-bottom:8px; display:flex; align-items:center; justify-content:center;
-}
-.df-logo-dot { width:10px; height:10px; border-radius:3px; background:var(--grad) }
-.df-row {
-  height:22px; border-radius:4px; padding:0 5px;
-  display:flex; align-items:center; gap:4px;
-}
-.df-row.act { background:rgba(67,184,240,.22) }
-.df-row:not(.act) { background:rgba(255,255,255,.05) }
-.df-dot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,.3) }
-.df-row.act .df-dot { background:linear-gradient(135deg,#43b8f0,#00d4aa) }
-.df-ln { flex:1; height:4px; border-radius:2px; background:rgba(255,255,255,.12) }
-.df-row.act .df-ln { background:rgba(67,184,240,.4) }
-.df-chat {
-  flex:1; background:white; padding:7px 6px;
-  display:flex; flex-direction:column; gap:5px;
-}
-.df-top {
-  height:18px; background:var(--g6); border-radius:4px; margin-bottom:3px;
-  display:flex; align-items:center; gap:4px; padding:0 5px;
-}
-.df-top-dot { width:3px; height:3px; border-radius:50%; background:var(--g5) }
-.df-msg { height:12px; border-radius:3px; background:var(--g6) }
-.df-msg.ai { width:80% }
-.df-msg.usr { width:52%; align-self:flex-end; background:linear-gradient(90deg,rgba(67,184,240,.25),rgba(0,212,170,.25)) }
-.df-detail {
-  width:30%; background:var(--bg); border-left:1px solid var(--g5);
-  padding:7px 5px; display:flex; flex-direction:column; gap:5px;
-}
-.df-det-card {
-  border-radius:5px; background:white;
-  border:1px solid var(--g5); padding:4px 5px;
-}
-.df-det-l { height:4px; border-radius:2px; background:var(--g5); margin-bottom:2px }
-.df-det-l.c { background:rgba(67,184,240,.3) }
 
 @keyframes fu { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
 /* ═══════════════════ INTERFACE ═══════════════════ */
 #interface { background:var(--white) }
 
-.ipad-wrap {
-  margin:24px 0;
-  background:linear-gradient(145deg,#2e2e2e,#1c1c1c);
-  border-radius:16px; padding:9px;
-  box-shadow:0 20px 60px rgba(0,0,0,.18),0 0 0 1.5px rgba(0,0,0,.35);
+.zone-img {
+  width:100%; border-radius:12px;
+  display:block; margin:16px 0 4px;
+  box-shadow:0 8px 24px rgba(0,0,0,.10);
 }
-.ipad-screen {
-  border-radius:9px; overflow:hidden;
-  aspect-ratio:4/3; position:relative;
-  background:#0d1b2a;
-  display:flex;
-}
-.ipad-screen img {
-  width:100%; height:100%;
-  object-fit:cover; display:block;
-}
-/* CSS fallback for ipad section */
-.ipad-sidebar {
-  width:19%; background:linear-gradient(165deg,#082220,#091a24);
-  padding:10px 5px; display:flex; flex-direction:column; gap:5px;
-}
-.ipad-logo-area {
-  height:22px; border-radius:5px;
-  background:rgba(255,255,255,.1); margin-bottom:8px;
-  display:flex; align-items:center; justify-content:center;
-}
-.ipad-logo-dot { width:10px; height:10px; border-radius:3px; background:var(--grad) }
-.ipad-nav-row {
-  height:24px; border-radius:5px;
-  display:flex; align-items:center; gap:5px; padding:0 6px;
-}
-.ipad-nav-row.active { background:rgba(67,184,240,.22) }
-.ipad-nav-row:not(.active) { background:rgba(255,255,255,.05) }
-.ipad-nav-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.3) }
-.ipad-nav-row.active .ipad-nav-dot { background:linear-gradient(135deg,#43b8f0,#00d4aa) }
-.ipad-nav-line { height:4px; flex:1; border-radius:2px; background:rgba(255,255,255,.12) }
-.ipad-nav-row.active .ipad-nav-line { background:rgba(67,184,240,.4) }
-.ipad-chat {
-  flex:1; background:white; padding:8px 7px;
-  display:flex; flex-direction:column; gap:5px;
-}
-.ipad-chat-top {
-  height:20px; background:var(--g6); border-radius:5px; margin-bottom:3px;
-  display:flex; align-items:center; gap:5px; padding:0 6px;
-}
-.ipad-chat-top-dot { width:4px; height:4px; border-radius:50%; background:var(--g5) }
-.ipad-msg { height:14px; border-radius:4px; background:var(--g6) }
-.ipad-msg.ai { width:82%; align-self:flex-start }
-.ipad-msg.user {
-  width:55%; align-self:flex-end;
-  background:linear-gradient(90deg,rgba(67,184,240,.25),rgba(0,212,170,.25));
-}
-.ipad-msg.ai2 { width:70% }
-.ipad-detail {
-  width:31%; background:var(--bg); border-left:1px solid var(--g5);
-  padding:8px 6px; display:flex; flex-direction:column; gap:5px;
-}
-.ipad-detail-card {
-  border-radius:6px; background:white;
-  border:1px solid var(--g5); padding:5px 6px;
-}
-.ipad-detail-l { height:5px; border-radius:3px; background:var(--g5); margin-bottom:3px }
-.ipad-detail-l.c { background:rgba(67,184,240,.3) }
 
 .zone-list { display:flex; flex-direction:column; gap:8px; margin-top:12px }
 .zone-item {
@@ -328,6 +213,20 @@ body {
 .feat-tag {
   font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700;
   letter-spacing:.08em; text-transform:uppercase; color:var(--g4);
+}
+.feat-chips {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:16px;
+  margin-bottom:16px;
+}
+.feat-chip {
+  font-size:12px; font-weight:500; line-height:1;
+  padding:6px 0; border-radius:40px;
+  background:var(--g6);
+  border:1px solid var(--g5);
+  color:var(--g2);
+  text-align:center;
 }
 .feat-arrow {
   width:26px; height:26px; border-radius:50%;
@@ -471,41 +370,29 @@ body {
 .support-text { font-size:12.5px; color:var(--g3); line-height:1.75; flex:1 }
 .support-chevron { font-size:18px; color:var(--g4); flex-shrink:0 }
 
-/* ═══════════════════ BOTTOM NAV ═══════════════════ */
-.bot-nav {
-  position:fixed; bottom:0; left:50%; transform:translateX(-50%);
-  width:100%; max-width:430px; z-index:200;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(24px) saturate(180%);
-  border-top:1px solid var(--g5);
-  display:flex; align-items:stretch;
-  padding-bottom:env(safe-area-inset-bottom,6px);
+/* ── 向下滚动箭头 ── */
+.scroll-hint {
+  display:flex; justify-content:center;
+  margin-top:8px; margin-bottom:4px;
 }
-.bot-item {
-  flex:1; display:flex; flex-direction:column; align-items:center;
-  justify-content:center; gap:3px; padding:9px 4px 7px;
-  cursor:pointer; -webkit-tap-highlight-color:transparent;
-  position:relative;
+.scroll-hint-arrow {
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  opacity:.55;
+  animation:scroll-bounce 1.8s ease-in-out infinite;
 }
-.bot-item::after {
-  content:''; position:absolute;
-  bottom:calc(env(safe-area-inset-bottom,6px) + 7px);
-  left:50%; transform:translateX(-50%);
-  width:0; height:2px; border-radius:2px;
-  background:var(--grad-teal);
-  transition:width .3s cubic-bezier(.22,1,.36,1);
+.scroll-hint-arrow span {
+  display:block; width:10px; height:10px;
+  border-right:2px solid var(--g3);
+  border-bottom:2px solid var(--g3);
+  transform:rotate(45deg);
 }
-.bot-item.active::after { width:16px }
-.bot-icon { display:flex; align-items:center; justify-content:center; color:var(--g4); transition:transform .2s cubic-bezier(.22,1,.36,1), color .2s }
-.bot-item.active .bot-icon { color:#00c9a7; transform:scale(1.1) }
-.bot-lbl {
-  font-family:'DM Sans',sans-serif; font-size:9.5px; font-weight:600;
-  letter-spacing:.04em; text-transform:uppercase;
-  color:var(--g4); transition:color .2s;
+.scroll-hint-arrow span:nth-child(2) { opacity:.6; margin-top:-5px }
+.scroll-hint-arrow span:nth-child(3) { opacity:.3; margin-top:-5px }
+@keyframes scroll-bounce {
+  0%,100% { transform:translateY(0);   opacity:.55 }
+  50%      { transform:translateY(6px); opacity:.85 }
 }
-.bot-item.active .bot-lbl {
-  background:var(--grad-teal); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-}
+
 </style>
 </head>
 <body>
@@ -514,8 +401,7 @@ body {
 <!-- ═══ HERO ═══ -->
 <section id="hero">
   <div class="hero-brand">
-    <img src="images/logo3.png" alt="SA" class="hero-logo-img">
-    <span class="hero-brand-name">Sales Agent</span>
+    <img src="images/logo+名称.png" alt="Sales Agent" class="hero-logo-img">
   </div>
 
   <h1 class="hero-h1">
@@ -529,42 +415,19 @@ body {
   </p>
 
   <div class="hero-mockup">
-    <div class="device-outer">
-      <div class="device-screen">
-        <img
-          src="images/新对话-默认-文字输入框.jpg"
-          alt="Sales Agent 界面"
-          onerror="this.style.display='none'; this.closest('.device-screen').querySelector('.device-fallback').style.display='flex'"
-        >
-        <div class="device-fallback">
-          <div class="df-sb">
-            <div class="df-logo"><div class="df-logo-dot"></div></div>
-            <div class="df-row act"><div class="df-dot"></div><div class="df-ln"></div></div>
-            <div class="df-row"><div class="df-dot"></div><div class="df-ln"></div></div>
-            <div class="df-row"><div class="df-dot"></div><div class="df-ln"></div></div>
-            <div class="df-row"><div class="df-dot"></div><div class="df-ln"></div></div>
-          </div>
-          <div class="df-chat">
-            <div class="df-top">
-              <div class="df-top-dot"></div><div class="df-top-dot"></div>
-            </div>
-            <div class="df-msg ai"></div>
-            <div class="df-msg usr"></div>
-            <div class="df-msg ai"></div>
-            <div class="df-msg usr"></div>
-          </div>
-          <div class="df-detail">
-            <div class="df-det-card"><div class="df-det-l c"></div><div class="df-det-l"></div></div>
-            <div class="df-det-card"><div class="df-det-l"></div><div class="df-det-l"></div></div>
-          </div>
-        </div>
-      </div>
+    <img src="images/mockup.png" alt="Sales Agent 界面">
+    <img class="hero-wave" src="images/wave.gif" alt="">
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-hint-arrow">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
 
 </section>
-
-<!-- ═══ INTERFACE ═══ -->
 <section id="interface" class="sec">
   <div class="eyebrow rv">
     <div class="eyebrow-line"></div>
@@ -573,23 +436,7 @@ body {
   <h2 class="sec-h2 rv">三大区域<strong>各司其职</strong></h2>
   <p class="sec-sub rv">Sales Agent 界面清晰分为三个功能区域，协同工作，为您提供完整的销售支持体验。</p>
 
-  <div class="ipad-wrap rv">
-    <div class="ipad-screen">
-      <img
-        src="images/展开侧边栏-三栏.png"
-        alt="Sales Agent 界面示意"
-        onerror="this.style.display='none'; this.closest('.ipad-screen').classList.add('show-fallback')"
-      >
-      <!-- CSS fallback, shown via JS if img fails -->
-      <div class="ipad-sidebar" style="display:none" id="ipad-fallback">
-        <div class="ipad-logo-area"><div class="ipad-logo-dot"></div></div>
-        <div class="ipad-nav-row active"><div class="ipad-nav-dot"></div><div class="ipad-nav-line"></div></div>
-        <div class="ipad-nav-row"><div class="ipad-nav-dot"></div><div class="ipad-nav-line"></div></div>
-        <div class="ipad-nav-row"><div class="ipad-nav-dot"></div><div class="ipad-nav-line"></div></div>
-        <div class="ipad-nav-row"><div class="ipad-nav-dot"></div><div class="ipad-nav-line"></div></div>
-      </div>
-    </div>
-  </div>
+  <img class="zone-img rv" src="images/工作台模式-文件.png" alt="Sales Agent 三栏界面">
 
   <div class="zone-list">
     <div class="zone-item rv d1">
@@ -614,7 +461,14 @@ body {
     <span class="eyebrow-text">Features · 核心功能</span>
   </div>
   <h2 class="sec-h2 rv">六项<strong>核心能力</strong></h2>
-  <p class="sec-sub rv">从产品问答到客户分析，从竞品攻防到话术定制，完整支持销售全流程。</p>
+  <div class="feat-chips rv">
+    <span class="feat-chip">实拍图查询</span>
+    <span class="feat-chip">本品知识问答</span>
+    <span class="feat-chip">竞品攻防话术</span>
+    <span class="feat-chip">传播素材检索</span>
+    <span class="feat-chip">客户画像分析</span>
+    <span class="feat-chip">定制话术生成</span>
+  </div>
 
   <div class="feat-scroll sh rv d1">
 
@@ -961,59 +815,6 @@ body {
   </div>
 </section>
 
-<!-- BOTTOM NAV -->
-<nav class="bot-nav">
-  <div class="bot-item active tap" data-sec="hero">
-    <span class="bot-icon">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 10.5L11 3.5L19 10.5V19C19 19.55 18.55 20 18 20H14V15C14 14.45 13.55 14 13 14H9C8.45 14 8 14.45 8 15V20H4C3.45 20 3 19.55 3 19V10.5Z"/>
-      </svg>
-    </span>
-    <span class="bot-lbl">首页</span>
-  </div>
-  <div class="bot-item tap" data-sec="features">
-    <span class="bot-icon">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="7" height="7" rx="1.5"/>
-        <rect x="12" y="3" width="7" height="7" rx="1.5"/>
-        <rect x="3" y="12" width="7" height="7" rx="1.5"/>
-        <rect x="12" y="12" width="7" height="7" rx="1.5"/>
-      </svg>
-    </span>
-    <span class="bot-lbl">功能</span>
-  </div>
-  <div class="bot-item tap" data-sec="howto">
-    <span class="bot-icon">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8.25"/>
-        <path d="M14.5 7.5L12.5 12.5L7.5 14.5L9.5 9.5L14.5 7.5Z"/>
-      </svg>
-    </span>
-    <span class="bot-lbl">上手</span>
-  </div>
-  <div class="bot-item tap" data-sec="faq">
-    <span class="bot-icon">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 5.5C4 4.67 4.67 4 5.5 4H16.5C17.33 4 18 4.67 18 5.5V13C18 13.83 17.33 14.5 16.5 14.5H9.5L5 18.5V14.5H5.5C4.67 14.5 4 13.83 4 13V5.5Z"/>
-        <circle cx="8.5" cy="9.25" r=".75" fill="currentColor" stroke="none"/>
-        <circle cx="11" cy="9.25" r=".75" fill="currentColor" stroke="none"/>
-        <circle cx="13.5" cy="9.25" r=".75" fill="currentColor" stroke="none"/>
-      </svg>
-    </span>
-    <span class="bot-lbl">问答</span>
-  </div>
-  <div class="bot-item tap" data-sec="support">
-    <span class="bot-icon">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 13V11C4 7.13 7.13 4 11 4C14.87 4 18 7.13 18 11V13"/>
-        <path d="M4 13.5C4 12.67 4.67 12 5.5 12H6C6.55 12 7 12.45 7 13V15.5C7 16.05 6.55 16.5 6 16.5H5.5C4.67 16.5 4 15.83 4 15V13.5Z"/>
-        <path d="M18 13.5C18 12.67 17.33 12 16.5 12H16C15.45 12 15 12.45 15 13V15.5C15 16.05 15.45 16.5 16 16.5H16.5C17.33 16.5 18 15.83 18 15V13.5Z"/>
-      </svg>
-    </span>
-    <span class="bot-lbl">支持</span>
-  </div>
-</nav>
-
 <script>
 /* ─── FAQ accordion ─── */
 function toggleFaq(el) {
@@ -1030,31 +831,6 @@ const rvObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
-
-/* ─── Bottom nav auto-highlight ─── */
-const secMap = { hero:0, interface:0, features:1, howto:2, tips:2, faq:3, support:4 };
-const botItems = document.querySelectorAll('.bot-item');
-
-const secObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const idx = secMap[e.target.id];
-      if (idx !== undefined) {
-        botItems.forEach((n,i) => n.classList.toggle('active', i === idx));
-      }
-    }
-  });
-}, { threshold: 0.35 });
-['hero','interface','features','howto','tips','faq','support'].forEach(id => {
-  const el = document.getElementById(id); if(el) secObs.observe(el);
-});
-
-botItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const target = document.getElementById(item.dataset.sec);
-    if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-  });
-});
 
 /* ─── Feature scroll dots ─── */
 const featScroll = document.querySelector('.feat-scroll');
